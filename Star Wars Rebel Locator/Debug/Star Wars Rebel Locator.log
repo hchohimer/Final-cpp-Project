@@ -1,8 +1,14 @@
 ﻿  Star Wars Rebel Locator.cpp
 c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(68): warning C4018: '<': signed/unsigned mismatch
-c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(84): warning C4018: '<': signed/unsigned mismatch
-c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(86): warning C4018: '<': signed/unsigned mismatch
-c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(101): warning C4018: '<': signed/unsigned mismatch
-c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(103): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(85): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(87): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(104): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(107): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(112): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(126): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(128): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(144): warning C4018: '<': signed/unsigned mismatch
+c:\users\the toolkit\documents\visual studio 2017\projects\star wars rebel locator\star wars rebel locator\star wars rebel locator.cpp(146): warning C4018: '<': signed/unsigned mismatch
   Star Wars Rebel Locator.vcxproj -> C:\Users\The Toolkit\Documents\Visual Studio 2017\Projects\Star Wars Rebel Locator\Debug\Star Wars Rebel Locator.exe
   Star Wars Rebel Locator.vcxproj -> C:\Users\The Toolkit\Documents\Visual Studio 2017\Projects\Star Wars Rebel Locator\Debug\Star Wars Rebel Locator.pdb (Partial PDB)
