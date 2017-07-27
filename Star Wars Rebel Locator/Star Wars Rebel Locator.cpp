@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <list>
 using namespace std;
 
 struct vertex;
@@ -21,17 +22,17 @@ struct adjVertex {
 struct vertex {
 	string key;
 	vector<adjVertex> adjacent;
-	bool solved;
+	bool solved = false;
 	bool active = true;
 	int distance;
-	vertex *parent;
+	vertex *parent = nullptr;
 };
 
 //Graph Class and initalizer
 class Graph {
 private:
 	vector <vertex> vertices;
-	void initalizeGraph();
+	vertex search(string value);
 public:
 	Graph();
 	void insertVertex(string value);
@@ -39,7 +40,7 @@ public:
 	void deleteVertex(string value);
 	void deleteEdge(string start, string end);
 	void printGraph();
-	vertex search(vertex value);
+	void Dijkstra(string start, string end);
 };
 Graph Galaxy;
 
@@ -63,6 +64,17 @@ Graph::Graph() {
 	insertEdge("Tatooine", "Dantooine", 205);
 }
 
+//search to return vertex of string
+vertex Graph::search(string value) {
+	for (int x = 0; x < vertices.size(); x++) {
+		if (vertices[x].key == value) {
+			return vertices[x];
+		}//end of if
+	}//end of for
+
+}
+
+//---------------------------------------------------
 //insert vertex
 void Graph::insertVertex(string value) {
 	bool found = false;
@@ -151,11 +163,53 @@ void Graph::printGraph() {
 	}
 }
 
+//Dijkstra Search for shortest route
+void Graph::Dijkstra(string start, string end) {
+	vertex startV = search(start);
+	vertex endV = search(end);
+	startV.solved = true;
+	startV.distance = 0;
+	vector<vertex> solved = { startV };
+	vertex *Parent;
+	int min_distance = INT_MAX;
+	while (!endV.solved) {
+		cout << "calculating..." << endl;
+		vertex solvedV;
+		for (int x = 0; x < sizeof(solved); x++) {
+			vertex s = solved[x];
+			for (int y = 0; s.adjacent.size(); y++) {
+				if (!s.adjacent[y].v->solved) {
+					int dist = s.distance + s.adjacent[y].weight;
+					if (dist < min_distance) {
+						cout << "calculating..." << endl;
+						vertex * placeholder = s.adjacent[y].v;
+						solvedV = * placeholder;
+						min_distance = dist;
+						Parent = &s;
+					}//end of dist if
+				}//end of if
+			}//end of y for loop
+		}//end of x for loop
+		cout << "calculating..." << endl;
+		solvedV.distance = min_distance;
+		solvedV.parent = Parent;
+		solvedV.solved = true;
+		solved.push_back(solvedV);
+	}//end of while
+	cout << "calculating..." << endl;
+	vertex temp = endV;
+	cout << "Route Calculated" << endl;
+	cout << "----------------------------" << endl << endl;
+	cout << "Total Distance: " << min_distance << ": Parsecs" << endl;
+	cout << temp.key << " <---";
+	while (temp.parent != nullptr) {
+		cout << temp.key << " <---";
+	}//end of while
+	cout << "You Are Here"<<endl;
 
+}//end of func
 
-
-
-
+ 
 
 
 
@@ -179,7 +233,7 @@ void display_menu() {
 	cout << "1. Print Galactic Map" << endl;
 	cout << "2. Update Galactic Map - Base Compromised" << endl;
 	cout << "3. Update Galactic Map - New Outpost Established" << endl;
-	cout << "4. unassigned" << endl;
+	cout << "4. Plot Shortest Course" << endl;
 	cout << "5. unassigned" << endl;
 	cout << "6. Quit" << endl;
 
@@ -212,7 +266,11 @@ void display_menu() {
 
 		break;
 	case 4:
-
+		cout << "Where are you currently?" << endl;
+		cin >> querry1;
+		cout << "Where would you like to calculate a course to?" << endl;
+		cin >> querry2;
+		Galaxy.Dijkstra(querry1, querry2);
 		break;
 	case 5:
 
