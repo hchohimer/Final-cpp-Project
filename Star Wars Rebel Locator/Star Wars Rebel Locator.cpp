@@ -22,6 +22,7 @@ struct vertex {
 	string key;
 	vector<adjVertex> adjacent;
 	bool solved;
+	bool active = true;
 	int distance;
 	vertex *parent;
 };
@@ -97,13 +98,13 @@ void Graph::insertEdge(string start, string end, int weight) {
 	}//for loop end
 }//func end
 
-//Delete edge
+ //Delete edge
 void Graph::deleteEdge(string start, string end) {
 	for (int x = 0; x < vertices.size(); x++) {
 		if (vertices[x].key == start) {
 			for (int y = 0; y < vertices.size(); y++) {
 				if (vertices[y].key == end && x != y) {
-//------------------------Deleting the edges here---------------------
+					//------------------------Deleting the edges here---------------------
 					for (int a = 0; a < vertices[x].adjacent.size(); a++) {
 						if (vertices[x].adjacent[a].v->key == end) {
 							vertices[x].adjacent.erase(vertices[x].adjacent.begin() + a);
@@ -114,41 +115,58 @@ void Graph::deleteEdge(string start, string end) {
 							vertices[y].adjacent.erase(vertices[y].adjacent.begin() + a);
 						}//end of deleting y side of edge
 					}//end of for a redux
-//---------------------------------------------------------------------
+					 //---------------------------------------------------------------------
 				}//end of if 
 			}//end of for statement
 		}//end of if statement
 	}//for loop end
 }//func end
 
-//Delete Vertex
+ //Delete Vertex
 void Graph::deleteVertex(string value) {
 	for (int x = 0; x < vertices.size(); x++) {
 		if (vertices[x].key == value) {
-			for (int y = 0; y < vertices[x].adjacent.size(); y++) {
+			int temp = vertices[x].adjacent.size();
+			for (int y = temp-1; y >= 0; y-- ) {
 				//deletes every edge first
 				deleteEdge(vertices[x].key, vertices[x].adjacent[y].v->key);
-
 			}//end of for y
-			//then deletes the full vertex
-			vertices.erase(vertices.begin() + x);
+			 //then deletes the full vertex
+			 //vertices.erase(vertices.begin() + x);
+			vertices[x].active = false;
 		}//end of if
-		else {
-			cout << "could not find world" << endl;
-		}
 	}//end of for x
 }
 
- //print Graph
+//print Graph
 void Graph::printGraph() {
 	for (int x = 0; x < vertices.size(); x++) {
-		cout << vertices[x].key << endl;
+		if (vertices[x].active)
+			cout << vertices[x].key << endl;
 		for (int y = 0; y < vertices[x].adjacent.size(); y++) {
 			string placeholder = vertices[x].adjacent[y].v->key;
-			cout << " - " << placeholder << endl;
+			//int placeholder2 = vertices[x].adjacent[y].weight
+			cout << " - " << placeholder << " - " << vertices[x].adjacent[y].weight<< endl;
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //menu
 void display_menu() {
@@ -212,12 +230,12 @@ void display_menu() {
 	display_menu();
 }
 
+
 int main()
 {
 	display_menu();
 
 
 	cin.get();
-    return 0;
+	return 0;
 }
-
