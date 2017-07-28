@@ -17,5 +17,15 @@ This Program will search through the twenty most common systems, and of course, 
 Good Luck,
 *Death to the Emporer and Long Live the Republic*
 
-
+#### How to run
 *To use this file, you will need to clone the repo, go into the debug folder and run the executable.*
+
+#### Dependencies
+none.
+
+#### System Requirements
+none.
+
+#### Open Issues
+The program suffers errors when incorrect name data is entered. Be very exact with your planet names.
+###### I would also appreciate some assistance with creating a more accurate Star Wars Galaxy Map.
