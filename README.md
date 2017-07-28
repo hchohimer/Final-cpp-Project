@@ -16,3 +16,6 @@ This Program will search through the twenty most common systems, and of course, 
 
 Good Luck,
 *Death to the Emporer and Long Live the Republic*
+
+
+*To use this file, you will need to clone the repo, go into the debug folder and run the executable.*
